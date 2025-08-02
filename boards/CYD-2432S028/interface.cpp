@@ -56,7 +56,7 @@ void _post_setup_gpio() {
 
     if (!caldata) {
         tft.setRotation(ROTATION);
-        tft.calibrateTouch(calData, TFT_WHITE, TFT_BLACK, 10);
+        tft.calibrateTouch(calData, TFT_BLACK, TFT_WHITE, 10);
 
         caldata = LittleFS.open("/calData", "w");
         if (caldata) {
