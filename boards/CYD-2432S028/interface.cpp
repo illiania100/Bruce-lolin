@@ -2,7 +2,7 @@
 #include "core/utils.h"
 #include <Arduino.h>
 #include <interface.h>
-#define USE_TFT_eSPI_TOUCH true
+// #define USE_TFT_eSPI_TOUCH true
 #if defined(HAS_CAPACITIVE_TOUCH)
 #include "CYD28_TouchscreenC.h"
 #define CYD28_DISPLAY_HOR_RES_MAX 240
@@ -55,8 +55,9 @@ void _post_setup_gpio() {
     File caldata = LittleFS.open("/calData", "r");
 
     if (!caldata) {
+        Serial.println("caldata calibrate probably die here");
         tft.setRotation(ROTATION);
-        tft.calibrateTouch(calData, TFT_BLACK, TFT_WHITE, 10);
+        tft.calibrateTouch(calData, TFT_WHITE, TFT_BLACK, 10);
 
         caldata = LittleFS.open("/calData", "w");
         if (caldata) {
@@ -65,6 +66,7 @@ void _post_setup_gpio() {
             );
             caldata.close();
         }
+        Serial.println("end");
     } else {
         Serial.print("\ntft Calibration data: ");
         for (int i = 0; i < 5; i++) {
