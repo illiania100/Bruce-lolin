@@ -2,7 +2,7 @@
 #include "core/utils.h"
 #include <Arduino.h>
 #include <interface.h>
-#define USE_TFT_eSPI_TOUCH
+#define USE_TFT_eSPI_TOUCH true
 #if defined(HAS_CAPACITIVE_TOUCH)
 #include "CYD28_TouchscreenC.h"
 #define CYD28_DISPLAY_HOR_RES_MAX 240
