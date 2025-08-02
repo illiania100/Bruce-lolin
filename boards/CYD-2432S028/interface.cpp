@@ -134,7 +134,7 @@ void InputHandler(void) {
         if (touch.touched()) {
             auto t = touch.getPointScaled();
 #endif
-            // Serial.printf("\nRAW: Touch Pressed on x=%d, y=%d",t.x, t.y);
+            Serial.printf("\nRAW: Touch Pressed on x=%d, y=%d", t.x, t.y);
             if (bruceConfig.rotation == 3) {
                 t.y = (tftHeight + 20) - t.y;
                 t.x = tftWidth - t.x;
@@ -149,7 +149,7 @@ void InputHandler(void) {
                 t.x = t.y;
                 t.y = (tftHeight + 20) - tmp;
             }
-            // Serial.printf("\nROT: Touch Pressed on x=%d, y=%d\n",t.x, t.y);
+            Serial.printf("\nROT: Touch Pressed on x=%d, y=%d\n", t.x, t.y);
 
             if (!wakeUpScreen()) AnyKeyPress = true;
             else goto END;
