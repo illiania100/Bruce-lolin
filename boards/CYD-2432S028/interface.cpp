@@ -2,7 +2,7 @@
 #include "core/utils.h"
 #include <Arduino.h>
 #include <interface.h>
-
+#define USE_TFT_eSPI_TOUCH
 #if defined(HAS_CAPACITIVE_TOUCH)
 #include "CYD28_TouchscreenC.h"
 #define CYD28_DISPLAY_HOR_RES_MAX 240
@@ -19,6 +19,7 @@ CYD28_TouchR touch(CYD28_DISPLAY_HOR_RES_MAX, CYD28_DISPLAY_VER_RES_MAX);
 #define XPT2046_CS XPT2046_SPI_CONFIG_CS_GPIO_NUM
 #else
 #define XPT2046_CS 33
+
 #endif
 #endif
 
