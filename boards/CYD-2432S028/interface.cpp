@@ -117,7 +117,7 @@ void InputHandler(void) {
 #if defined(USE_TFT_eSPI_TOUCH)
         TouchPoint t;
         checkPowerSaveTime();
-        Serial.println(t);
+        Serial.println(t.x);
         bool _IH_touched = tft.getTouch(&t.x, &t.y);
         if (_IH_touched) {
             NextPress = false;
